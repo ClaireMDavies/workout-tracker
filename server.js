@@ -3,7 +3,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 
 const app = express();
-
+const PORT = process.env.PORT || 3001;
 app.use(logger("dev"));
 
 app.use(express.urlencoded({ extended: true }));
@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 
-app.listen(3001, () => {
-    console.log("App running on port 3001!");
+app.listen(PORT,function(){ 
+    console.log(`App listening on Port ${PORT}`);
 });
   
